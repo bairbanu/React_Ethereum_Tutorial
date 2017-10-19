@@ -21,7 +21,7 @@ class App extends Component {
 
     // Phase 2 -- edit this with each iteration of Smart Contract
     // eslint-disable-next-line
-    this.state.ContractInstance = MyContract.at('0x484fc9e92bb6aaa0f26b78188229e931c696296a');
+    this.state.ContractInstance = MyContract.at('0xf5cf0e32a4a8a1ca9e25732b41640051654cad0c');
 
     // Phase 2
     this.getSecret = this.getSecret.bind(this);
@@ -64,7 +64,7 @@ class App extends Component {
       value: window.web3.toWei(0.01, 'ether')
     }, (err, result) => {
       if (err) console.error(err);
-      console.log('Smart contract state changed');
+      console.log('Smart contract state is changing');
     })
   }
 
