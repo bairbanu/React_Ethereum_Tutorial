@@ -78,5 +78,7 @@ contract ReactExample {
 
   // Phase 0
   // Fallback function in case someone sends ether to this contract
-  function() payable {}
+  function() payable {
+    revert();
+  }
 }
