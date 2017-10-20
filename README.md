@@ -1,6 +1,6 @@
 ## Purpose of App
 
-Demystify a way to connect the Ethereum Blockchain and React using Metamask.
+Demystify a way to connect the Ethereum Blockchain with React using Metamask.
 
 # Pre-setup
 
