@@ -1,7 +1,5 @@
 pragma solidity ^0.4.11;
 
-import "github.com/Arachnid/solidity-stringutils/strings.sol";
-
 /*
 -- For Oakland Blockchain Developers Meetup
 -- 10/19/2017 @ Learners Guild workspace
