@@ -13,7 +13,7 @@ pragma solidity ^0.4.11;
 
 contract ReactExample {
   // Phase 0
-  address owner;
+  address private owner;
   // Phase 1
   string public you_awesome;
   // Phase 2
@@ -21,11 +21,12 @@ contract ReactExample {
   // Phase 3
   string private state;
   // Phase 4
-  bool public peusodoRandomResult;
-  event experimentComplete(bool result);
+  bool public pseudoRandomResult;
+  event ExperimentComplete (bool result);
 
   // Phase 0
-  function ReactExample() {
+  function ReactExample () public {
+    // Phase 0
     owner = msg.sender;
     // Phase 1
     you_awesome = "You're awesome!";
@@ -33,50 +34,48 @@ contract ReactExample {
     secret = "secret data";
     // Phase 3
     state = "Initial state";
-    // Phase 4
-    peusodoRandomResult = true;
   }
 
   // Phase 0
   // Offer owner contract a way to destroy contract if it gets compromised
-  function kill() {
-    require(msg.sender == owner);
-    selfdestruct(owner);
+  function kill () public {
+    require (msg.sender == owner);
+    selfdestruct (owner);
   }
 
   // Phase 2
   // Get some secret data from contract
-  function getSecret() constant returns (string) {
+  function getSecret () public constant returns (string) {
     return secret;
   }
 
   // Phase 3
   // Get some state from contract
-  function getState() view returns (string) {
+  function getState () public view returns (string) {
     return state;
   }
 
   // Phase 3
   // Set new state to contract
-  function setState(string newState) payable {
+  function setState (string newState) public payable {
     state = newState;
   }
 
   // Phase 4
   // Set an experiment that returns whether data met some threshold
-  function setExperimentInMotion() payable returns (bool) {
-    bytes32 _peusodoRandomResult = keccak256(msg.sender, msg.value, msg.data);
+  function setExperimentInMotion () public payable returns (bool) {
+    bytes32 _pseudoRandomResult = keccak256 (msg.sender, msg.value, msg.data);
     // Some conditional depending on application's intention
-    if (_peusodoRandomResult > bytes32(10)) peusodoRandomResult = true;
-    else peusodoRandomResult = false;
+    if (_pseudoRandomResult > bytes32 (10)) pseudoRandomResult = true;
+    else pseudoRandomResult = false;
 
-    // Emit event for React front-end
-    experimentComplete(peusodoRandomResult);
+    // Emit event for React frontend
+    ExperimentComplete (pseudoRandomResult);
   }
 
   // Phase 0
   // Fallback function in case someone sends ether to this contract
-  function() payable {
-    revert();
+  function () public payable {
+    revert ();
   }
 }
