@@ -2,6 +2,8 @@
 
 Show how React can talk with the Ethereum blockchain through Metamask.
 
+Note: This repository is not maintained.
+
 ### Tech Stack
 - React and Ethereum Tools: Remix, Solidity, Metamask.
 
